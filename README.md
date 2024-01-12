@@ -21,6 +21,10 @@ Nebeng is a ride-sharing app designed specifically for students, providing an ef
 
 ## Image UI 🌈
 
+### Login & Register
+
+![Login & Register](https://github.com/bmsptra24/nebeng/blob/main/doc/Login.png)
+
 ### Chat
 
 ![Chat](https://github.com/bmsptra24/nebeng/blob/main/doc/Chat.png)
