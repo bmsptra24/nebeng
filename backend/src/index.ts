@@ -1,13 +1,14 @@
 import express from 'express'
 import { initializeApp } from 'firebase/app'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import { getFirestore, doc, getDoc } from 'firebase/firestore'
 import bodyParser from 'body-parser'
 import dotenv from 'dotenv'
 
 dotenv.config()
 
 const app = express()
-const port = 3000
+const port = 8000
 
 app.use(bodyParser.json())
 
@@ -24,6 +25,7 @@ const firebaseApp = initializeApp(firebaseConfig)
 
 app.post('/login', async (req, res) => {
   const { email, password } = req.body
+  console.log({ email, password })
 
   try {
     const auth = getAuth(firebaseApp)
@@ -37,16 +39,31 @@ app.post('/login', async (req, res) => {
     // Generate a Firebase ID token
     const token = await user.getIdToken()
 
-    // Return response to the client
-    res.json({
-      success: true,
-      message: 'Login successful',
-      user: {
-        uid: user.uid,
-        email: user.email,
-      },
-      token,
-    })
+    // Fetch data from Firestore 'users' collection using the user's uid
+    const firestore = getFirestore(firebaseApp)
+    const userDocRef = doc(firestore, 'users', user.uid)
+    const userDocSnapshot = await getDoc(userDocRef)
+
+    if (userDocSnapshot.exists()) {
+      const userData = userDocSnapshot.data()
+
+      // Return response to the client
+      res.json({
+        success: true,
+        message: 'Login successful',
+        user: {
+          uid: user.uid,
+          email: user.email,
+          indentity: userData,
+        },
+        token,
+      })
+    } else {
+      res.status(404).json({
+        success: false,
+        message: 'User data not found',
+      })
+    }
   } catch (error) {
     if (error instanceof Error) {
       console.error('Error signing in:', error)

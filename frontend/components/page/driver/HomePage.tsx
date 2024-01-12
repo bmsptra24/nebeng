@@ -1,8 +1,8 @@
-import { Text } from 'native-base'
+import { Center, Text } from 'native-base'
 import React from 'react'
 
 const HomePage = () => {
-  return <Text>Driver HomePage</Text>
+  return <Center h={'full'}>Driver HomePage</Center>
 }
 
 export default HomePage

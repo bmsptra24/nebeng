@@ -31,4 +31,6 @@ const configTheme = {
   },
 }
 
-export { configTheme }
+const baseUrl = 'http://localhost:3000/'
+
+export { configTheme, baseUrl }
