@@ -19,7 +19,7 @@ Nebeng is a ride-sharing app designed specifically for students, providing an ef
 
 4. [API Endpoints](https://github.com/bmsptra24/nebeng?tab=readme-ov-file#api-endpoints-)
 
-## Team 🤝
+## Tim Debest🤝
 
 1. **Hacker**
    - Name: Bima Saputra
