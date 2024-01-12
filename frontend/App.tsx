@@ -4,7 +4,7 @@ import { configTheme } from './config'
 import AuthPage from './components/page/AuthPage'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import LoginPage from './components/page/LoginPage'
-import PassangerRegister from './components/page/PassangerRegister'
+import PassangerRegisterPage from './components/page/PassangerRegisterPage'
 
 // extend the theme
 export const theme = extendTheme(configTheme)
@@ -17,8 +17,8 @@ export default function App() {
     <NativeBaseProvider theme={theme}>
       <SafeAreaView>
         {/* <AuthPage /> */}
-        <LoginPage />
-        {/* <PassangerRegister /> */}
+        {/* <LoginPage /> */}
+        <PassangerRegisterPage />
       </SafeAreaView>
     </NativeBaseProvider>
   )
