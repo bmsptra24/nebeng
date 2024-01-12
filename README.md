@@ -6,7 +6,7 @@ Nebeng is a ride-sharing app designed specifically for students, providing an ef
 
 1. [Introduction](https://github.com/bmsptra24/nebeng?tab=readme-ov-file#nebeng-%EF%B8%8F)
 
-   - [Purpose](https://github.com/bmsptra24/nebeng?tab=readme-ov-file#nebeng-%EF%B8%8F)
+   - [Team](https://github.com/bmsptra24/nebeng?tab=readme-ov-file#nebeng-%EF%B8%8F)
    - [Image UI](https://github.com/bmsptra24/nebeng?tab=readme-ov-file#image-ui-)
    - [Technologies Used](https://github.com/bmsptra24/nebeng?tab=readme-ov-file#technologies-used-%EF%B8%8F)
 
@@ -18,6 +18,18 @@ Nebeng is a ride-sharing app designed specifically for students, providing an ef
    - [Backend Setup](https://github.com/bmsptra24/nebeng?tab=readme-ov-file#backend)
 
 4. [API Endpoints](https://github.com/bmsptra24/nebeng?tab=readme-ov-file#api-endpoints-)
+
+## Team 🤝
+
+1. **Hacker**
+   - Name: Bima Saputra
+   - University: Sriwijaya State Polytechnic
+2. **Hipster**
+   - Name: Esya Aulia Rahmadanti
+   - University: Sriwijaya State Polytechnic
+3. **Hustler**
+   - Name: Dhea Pujiwanda Fahmi
+   - University: Sriwijaya State Polytechnic
 
 ## Image UI 🌈
 
