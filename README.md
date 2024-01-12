@@ -7,7 +7,7 @@ Nebeng is a ride-sharing app designed specifically for students, providing an ef
 1. [Introduction](https://github.com/bmsptra24/nebeng?tab=readme-ov-file#nebeng-%EF%B8%8F)
 
    - [Team](https://github.com/bmsptra24/nebeng?tab=readme-ov-file#nebeng-%EF%B8%8F)
-   - [Image UI](https://github.com/bmsptra24/nebeng?tab=readme-ov-file#image-ui-)
+   - [Screenshoots](https://github.com/bmsptra24/nebeng?tab=readme-ov-file#image-ui-)
    - [Technologies Used](https://github.com/bmsptra24/nebeng?tab=readme-ov-file#technologies-used-%EF%B8%8F)
 
 2. [Key Features](https://github.com/bmsptra24/nebeng?tab=readme-ov-file#key-features-)
@@ -31,39 +31,11 @@ Nebeng is a ride-sharing app designed specifically for students, providing an ef
    - Name: Dhea Pujiwanda Fahmi
    - University: Sriwijaya State Polytechnic
 
-## Image UI 🌈
+## Screenshots 🌈
 
 ### Login & Register
 
-![Login & Register](https://github.com/bmsptra24/nebeng/blob/main/doc/Login.png)
-
-### Chat
-
-![Chat](https://github.com/bmsptra24/nebeng/blob/main/doc/Chat.png)
-
-### Order MVP
-
-![Order MVP](https://github.com/bmsptra24/nebeng/blob/main/doc/OrdeR%20MVP.png)
-
-### Driver Profile
-
-![Driver Profile](https://github.com/bmsptra24/nebeng/blob/main/doc/Profil%20Driver.png)
-
-### Passenger Profile
-
-![Passenger Profile](https://github.com/bmsptra24/nebeng/blob/main/doc/Profil%20Passenger.png)
-
-### Take Order
-
-![Take Order](https://github.com/bmsptra24/nebeng/blob/main/doc/Take%20order.png)
-
-### Wallet
-
-![Wallet](https://github.com/bmsptra24/nebeng/blob/main/doc/WALLET.png)
-
-### Transfer
-
-![Transfer](https://github.com/bmsptra24/nebeng/blob/main/doc/transfer.png)
+![Login & Register](https://github.com/bmsptra24/nebeng/blob/main/doc/ss.png)
 
 ## Technologies Used 🛠️
 
