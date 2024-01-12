@@ -4,33 +4,20 @@ Nebeng is a ride-sharing app designed specifically for students, providing an ef
 
 # Table of Contents 📑
 
-1. [Introduction](#introduction)
+1. [Introduction](https://github.com/bmsptra24/nebeng?tab=readme-ov-file#nebeng-%EF%B8%8F)
 
-   - [Purpose](#purpose)
-   - [Image UI](#image-ui)
-   - [Technologies Used](#technologies-used)
+   - [Purpose](https://github.com/bmsptra24/nebeng?tab=readme-ov-file#nebeng-%EF%B8%8F)
+   - [Image UI](https://github.com/bmsptra24/nebeng?tab=readme-ov-file#image-ui-)
+   - [Technologies Used](https://github.com/bmsptra24/nebeng?tab=readme-ov-file#technologies-used-%EF%B8%8F)
 
-2. [Key Features](#key-features)
+2. [Key Features](https://github.com/bmsptra24/nebeng?tab=readme-ov-file#key-features-)
 
-3. [Getting Started](#getting-started)
+3. [Getting Started](https://github.com/bmsptra24/nebeng?tab=readme-ov-file#getting-started-)
 
-   - [Frontend Setup](#frontend-setup)
-     - [Clone the Project](#clone-the-project)
-     - [Install Dependencies](#install-dependencies)
-     - [Start the Expo Project](#start-the-expo-project)
-     - [Running on Emulator/Device](#running-on-emulatordevice)
-   - [Backend Setup](#backend-setup)
-     - [Clone the Project](#clone-the-project-1)
-     - [Install Dependencies](#install-dependencies-1)
-     - [Configure Firebase Credentials](#configure-firebase-credentials)
-     - [Configure Base URL](#configure-base-url)
-     - [Start the Backend Server](#start-the-backend-server)
+   - [Frontend Setup](https://github.com/bmsptra24/nebeng?tab=readme-ov-file#frontend)
+   - [Backend Setup](https://github.com/bmsptra24/nebeng?tab=readme-ov-file#backend)
 
-4. [API Endpoints](#api-endpoints)
-
-5. [Contributing](#contributing)
-
-6. [License](#license)
+4. [API Endpoints](https://github.com/bmsptra24/nebeng?tab=readme-ov-file#api-endpoints-)
 
 ## Image UI 🌈
 
@@ -140,13 +127,5 @@ Nebeng is a ride-sharing app designed specifically for students, providing an ef
       "password": "driver123"
     }
     ```
-
-## Contributing 🤝
-
-If you want to contribute to Nebeng, please follow the [contribution guidelines](CONTRIBUTING.md).
-
-## License 📄
-
-This project is licensed under the [MIT License](LICENSE).
 
 ---
