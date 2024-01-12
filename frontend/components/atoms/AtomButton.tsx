@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Icon, Text } from 'native-base'
+import { Box, Button, Icon, Image, Pressable, Text } from 'native-base'
 import { StyleProp, ViewStyle } from 'react-native'
 import { ColorType } from 'native-base/lib/typescript/components/types'
 
@@ -30,9 +30,9 @@ const AtomButton: React.FC<AtomButtonProps> = ({
         onPress={onPress}
         display={'flex'}
         justifyContent={'start'}
-        pl={'5'}
-        pb={'2.5'}
         style={style}
+        px={'5'}
+        py={'3'}
       >
         <Text fontSize={'xl'} color={'white'}>
           {label}
@@ -42,7 +42,7 @@ const AtomButton: React.FC<AtomButtonProps> = ({
 
   if (variant === 'textAndIcon')
     return (
-      <Button
+      <Pressable
         _pressed={{
           bg: 'primary.800',
         }}
@@ -51,16 +51,21 @@ const AtomButton: React.FC<AtomButtonProps> = ({
         w={'full'}
         onPress={onPress}
         display={'flex'}
-        justifyContent={'start'}
-        pl={'5'}
-        pb={'2.5'}
+        justifyContent={'space-between'}
+        flexDirection={'row-reverse'}
+        alignItems={'center'}
+        px={'5'}
+        py={'3'}
         style={style}
       >
-        <Icon name="home" />
+        <Image
+          source={require('../../assets/icons/google.png')}
+          alt="Logo Google"
+        />
         <Text fontSize={'xl'} color={'white'}>
           {label}
         </Text>
-      </Button>
+      </Pressable>
     )
 }
 

@@ -10,11 +10,15 @@ const MolBtnLogin = () => {
         Login as
       </Text>
       <AtomButton
+        bg={'primary.700'}
+        variant="textOnly"
         style={{ marginTop: 10 }}
         label="Passengers"
         onPress={templateHandleButtonPress}
       />
       <AtomButton
+        bg={'primary.700'}
+        variant="textOnly"
         style={{ marginTop: 10 }}
         label="Driver"
         onPress={templateHandleButtonPress}

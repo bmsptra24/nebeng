@@ -1,6 +1,6 @@
 import { Box, Heading, Image } from 'native-base'
-import MolBtnLogin from '../molecules/login/MolBtn'
-import MolOrnament from '../molecules/login/MolOrnament'
+import MolBtnLogin from '../molecules/auth/MolBtn'
+import MolOrnament from '../molecules/auth/MolOrnament'
 import TempAuth from '../templates/TempAuth'
 
 const AuthPage = () => {
