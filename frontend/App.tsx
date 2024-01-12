@@ -25,7 +25,7 @@ export default function App() {
   return (
     <NativeBaseProvider theme={theme}>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="auth">
+        <Stack.Navigator initialRouteName="login">
           <Stack.Screen
             name="login"
             component={LoginPage}
