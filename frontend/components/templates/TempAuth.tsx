@@ -1,5 +1,6 @@
 import { Container, Heading, Image, Text } from 'native-base'
 import React from 'react'
+import { SafeAreaView } from 'react-native'
 
 const TempAuth: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (

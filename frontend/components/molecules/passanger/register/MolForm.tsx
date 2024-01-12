@@ -6,8 +6,9 @@ import {
   WarningOutlineIcon,
 } from 'native-base'
 import React from 'react'
+import { TPassangerRegister } from '../../../../types/navigation'
 
-const MolForm = () => {
+const MolForm: React.FC<TPassangerRegister> = ({ navigation }) => {
   return (
     <FormControl isRequired>
       <Stack space={'4'}>
@@ -23,7 +24,10 @@ const MolForm = () => {
       </Stack>
 
       <Text textAlign={'center'}>
-        Already have a account? let’s <Text color={'primary.600'}>Log in</Text>
+        Already have a account? let’s{' '}
+        <Text color={'primary.600'} onPress={() => navigation.push('login')}>
+          Log in
+        </Text>
       </Text>
     </FormControl>
   )

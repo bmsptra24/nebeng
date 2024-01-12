@@ -12,12 +12,12 @@ const MolOrnament = () => {
       <OrnamentCircle
         variant="medium"
         color="secondary.800"
-        style={{ left: -100, top: 120 }}
+        style={{ left: -100, top: '20%' }}
       />
       <OrnamentCircle
         variant="small"
         color="secondary.400"
-        style={{ right: -50, top: 420 }}
+        style={{ right: -60, top: '50%' }}
       />
     </>
   )
