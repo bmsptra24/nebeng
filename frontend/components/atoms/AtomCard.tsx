@@ -31,7 +31,7 @@ const AtomCard: React.FC<TAtomCard> = ({
     <HStack
       position={'relative'}
       bg={'gray.300'}
-      h={'48'}
+      h={'56'}
       rounded={'xl'}
       flexDirection={flip ? 'row-reverse' : 'row'}
       px={'2'}

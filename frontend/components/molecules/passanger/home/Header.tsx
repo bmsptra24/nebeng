@@ -31,7 +31,7 @@ export const Header = () => {
         right={5}
         w={'1/3'}
         h={'4/5'}
-        resizeMode="stretch"
+        resizeMode="contain"
         alt="Hero"
         alignSelf={'center'}
         source={require('../../../../assets/images/hero-3.png')}
