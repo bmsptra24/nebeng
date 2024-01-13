@@ -1,38 +1,54 @@
-import { Stack, Text } from 'native-base'
+import { Stack, Text, useToast } from 'native-base'
 import React from 'react'
 import AtomButton from '../../atoms/AtomButton'
-import axios from 'axios'
+import axios, { AxiosError } from 'axios'
 import { TLoginPage } from '../../../types/navigation'
 import { useLoginState } from '../../../store/useLoginState'
 import { LoginApiResponse } from '../../../types/api'
+import { baseUrl } from '../../../config'
 
 const MolBtnLogin: React.FC<TLoginPage> = ({ navigation }) => {
   const { email, password } = useLoginState()
+  const toast = useToast()
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post(
-        'https://tmpgs6w3-8000.asse.devtunnels.ms/login',
-        {
-          email,
-          password,
-        },
-      )
+      const response = await axios.post(baseUrl + 'login', {
+        email,
+        password,
+      })
 
       const data: LoginApiResponse = response.data
       console.log(data.user.indentity.category)
 
       if (data.success) {
-        const homeScreen: 'driverhome' | 'passangerhome' =
+        const homeScreen: 'driverHome' | 'passengerHome' =
           data.user.indentity.category === 'driver'
-            ? 'driverhome'
-            : 'passangerhome'
+            ? 'driverHome'
+            : 'passengerHome'
         navigation.push(homeScreen)
       } else {
-        console.error('User not verified')
+        const message = 'User not verified'
+        console.error(message)
+        showToast(message)
       }
     } catch (error) {
-      console.error('Login failed', error)
+      handleLoginError(error)
+    }
+  }
+
+  const showToast = (message: string) => {
+    toast.show({
+      description: message,
+    })
+  }
+
+  const handleLoginError = (error: any) => {
+    if (error instanceof AxiosError) {
+      let message = 'Login failed, '
+      if (error.code === 'ERR_BAD_REQUEST') message = message + 'user not found'
+      console.error(error)
+      showToast(message)
     }
   }
 

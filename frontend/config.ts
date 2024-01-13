@@ -31,6 +31,7 @@ const configTheme = {
   },
 }
 
-const baseUrl = 'http://localhost:3000/'
+// const baseUrl = 'http://localhost:8000/'
+const baseUrl = 'https://tmpgs6w3-8000.asse.devtunnels.ms/'
 
 export { configTheme, baseUrl }

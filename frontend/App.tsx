@@ -21,47 +21,53 @@ declare module 'native-base' {
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
-export default function App() {
+const AppNavigation = () => (
+  <NavigationContainer>
+    <Stack.Navigator initialRouteName="login">
+      <Stack.Screen
+        name="login"
+        component={LoginPage}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="auth"
+        component={AuthPage}
+        options={{ title: 'Register' }}
+      />
+
+      {/* Passanger */}
+      <Stack.Screen
+        name="passangerRegister"
+        component={PassangerRegisterPage}
+        options={{ title: 'Passanger Register' }}
+      />
+      <Stack.Screen
+        name="passengerHome"
+        component={PassangerHome}
+        options={{ headerShown: false }}
+      />
+
+      {/* Driver */}
+      <Stack.Screen
+        name="driverRegister"
+        component={DriverRegisterPage}
+        options={{ title: 'Driver Register' }}
+      />
+      <Stack.Screen
+        name="driverHome"
+        component={DriverHome}
+        options={{ headerShown: false }}
+      />
+    </Stack.Navigator>
+  </NavigationContainer>
+)
+
+const App = () => {
   return (
     <NativeBaseProvider theme={theme}>
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="login">
-          <Stack.Screen
-            name="login"
-            component={LoginPage}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="auth"
-            component={AuthPage}
-            options={{ title: 'Register' }}
-          />
-
-          {/* Passanger */}
-          <Stack.Screen
-            name="passangerRegister"
-            component={PassangerRegisterPage}
-            options={{ title: 'Passanger Register' }}
-          />
-          <Stack.Screen
-            name="passangerhome"
-            component={PassangerHome}
-            options={{ headerShown: false }}
-          />
-
-          {/* Driver */}
-          <Stack.Screen
-            name="driverRegister"
-            component={DriverRegisterPage}
-            options={{ title: 'Driver Register' }}
-          />
-          <Stack.Screen
-            name="driverhome"
-            component={DriverHome}
-            options={{ headerShown: false }}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <AppNavigation />
     </NativeBaseProvider>
   )
 }
+
+export default App

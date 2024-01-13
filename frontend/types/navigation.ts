@@ -4,9 +4,9 @@ export type RootStackParamList = {
   auth: undefined
   login: undefined
   passangerRegister: undefined
-  passangerhome: undefined
+  passengerHome: undefined
   driverRegister: undefined
-  driverhome: undefined
+  driverHome: undefined
 }
 
 export type TAuthPage = NativeStackScreenProps<RootStackParamList, 'auth'>

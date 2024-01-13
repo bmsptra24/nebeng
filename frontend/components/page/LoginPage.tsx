@@ -1,10 +1,11 @@
-import { Box, Image } from 'native-base'
+import { Box, Button, Center, Image, useToast } from 'native-base'
 import React from 'react'
 import TempAuth from '../templates/TempAuth'
 import AtomButton from '../atoms/AtomButton'
 import MolForm from '../molecules/login/MolForm'
 import MolBtnLogin from '../molecules/login/MolBtnLogin'
 import { TLoginPage } from '../../types/navigation'
+import { InterfaceToastProps } from 'native-base/lib/typescript/components/composites/Toast'
 
 const LoginPage: React.FC<TLoginPage> = (props) => {
   return (
