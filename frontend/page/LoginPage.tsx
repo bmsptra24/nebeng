@@ -1,10 +1,10 @@
 import { Box, Button, Center, Image, useToast } from 'native-base'
 import React from 'react'
-import TempAuth from '../templates/TempAuth'
-import AtomButton from '../atoms/AtomButton'
-import MolForm from '../molecules/login/MolForm'
-import MolBtnLogin from '../molecules/login/MolBtnLogin'
-import { TLoginPage } from '../../types/navigation'
+import TempAuth from '../components/templates/TempAuth'
+import AtomButton from '../components/atoms/AtomButton'
+import MolForm from '../components/molecules/login/MolForm'
+import MolBtnLogin from '../components/molecules/login/MolBtnLogin'
+import { TLoginPage } from '../types/navigation'
 import { InterfaceToastProps } from 'native-base/lib/typescript/components/composites/Toast'
 
 const LoginPage: React.FC<TLoginPage> = (props) => {
@@ -12,7 +12,7 @@ const LoginPage: React.FC<TLoginPage> = (props) => {
     <Box h={'full'} display={'flex'} alignItems={'center'} mt={'5'}>
       <TempAuth>
         <Image
-          source={require('../../assets/images/hero-4.png')}
+          source={require('../assets/images/hero-4.png')}
           alt="Image Hero"
           resizeMode="contain"
           w={'full'}

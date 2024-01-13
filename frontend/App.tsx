@@ -4,13 +4,13 @@ import { configTheme } from './config'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-import AuthPage from './components/page/AuthPage'
-import LoginPage from './components/page/LoginPage'
-import PassangerRegisterPage from './components/page/passanger/RegisterPage'
-import DriverRegisterPage from './components/page/driver/RegisterPage'
+import AuthPage from './page/AuthPage'
+import LoginPage from './page/LoginPage'
+import PassangerRegisterPage from './page/passanger/RegisterPage'
+import DriverRegisterPage from './page/driver/RegisterPage'
 import { RootStackParamList } from './types/navigation'
-import PassangerHome from './components/page/passanger/HomePage'
-import DriverHome from './components/page/driver/HomePage'
+import PassangerHome from './page/passanger/HomePage'
+import DriverHome from './page/driver/HomePage'
 
 // extend the theme
 export const theme = extendTheme(configTheme)

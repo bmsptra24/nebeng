@@ -1,10 +1,10 @@
 import { Box, HStack, ScrollView, Text } from 'native-base'
 import React from 'react'
-import TempAuth from '../../templates/TempAuth'
-import AtomButton from '../../atoms/AtomButton'
-import MolForm from '../../molecules/driver/register/MolForm'
-import MolUploadDocument from '../../molecules/driver/register/MolUploadDocument'
-import { TDriverRegister } from '../../../types/navigation'
+import TempAuth from '../../components/templates/TempAuth'
+import AtomButton from '../../components/atoms/AtomButton'
+import MolForm from '../../components/molecules/driver/register/MolForm'
+import MolUploadDocument from '../../components/molecules/driver/register/MolUploadDocument'
+import { TDriverRegister } from '../../types/navigation'
 
 const DriverRegisterPage: React.FC<TDriverRegister> = ({ navigation }) => {
   return (
@@ -40,7 +40,7 @@ const DriverRegisterPage: React.FC<TDriverRegister> = ({ navigation }) => {
               label="Register"
               variant="textOnly"
               style={{ justifyContent: 'center' }}
-              onPress={() => navigation.push('driverhome')}
+              onPress={() => navigation.push('driverHome')}
             />
           </Box>
         </TempAuth>

@@ -1,8 +1,8 @@
 import { Box, Center, Heading, Image, Text } from 'native-base'
-import MolBtnLogin from '../molecules/auth/MolBtn'
-import MolOrnament from '../molecules/auth/MolOrnament'
-import TempAuth from '../templates/TempAuth'
-import { TAuthPage } from '../../types/navigation'
+import MolBtnLogin from '../components/molecules/auth/MolBtn'
+import MolOrnament from '../components/molecules/auth/MolOrnament'
+import TempAuth from '../components/templates/TempAuth'
+import { TAuthPage } from '../types/navigation'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 const AuthPage: React.FC<TAuthPage> = (props) => {
@@ -14,7 +14,7 @@ const AuthPage: React.FC<TAuthPage> = (props) => {
       <TempAuth>
         <Heading flexGrow={1}>
           <Image
-            source={require('../../assets/images/logo.png')}
+            source={require('../assets/images/logo.png')}
             alt="Logo"
             resizeMode="contain"
             bg={'amber.300'}
@@ -25,7 +25,7 @@ const AuthPage: React.FC<TAuthPage> = (props) => {
         </Heading>
         <Center w={'full'}>
           <Image
-            source={require('../../assets/images/hero-1.png')}
+            source={require('../assets/images/hero-1.png')}
             size="2xl"
             alt="Image Hero"
             resizeMode="contain"

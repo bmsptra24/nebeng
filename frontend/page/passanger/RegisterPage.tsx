@@ -1,10 +1,10 @@
 import { Box } from 'native-base'
 import React from 'react'
-import TempAuth from '../../templates/TempAuth'
-import AtomButton from '../../atoms/AtomButton'
-import MolHeader from '../../molecules/passanger/register/MolHeader'
-import MolForm from '../../molecules/passanger/register/MolForm'
-import { TPassangerRegister } from '../../../types/navigation'
+import TempAuth from '../../components/templates/TempAuth'
+import AtomButton from '../../components/atoms/AtomButton'
+import MolHeader from '../../components/molecules/passanger/register/MolHeader'
+import MolForm from '../../components/molecules/passanger/register/MolForm'
+import { TPassangerRegister } from '../../types/navigation'
 
 const PassangerRegisterPage: React.FC<TPassangerRegister> = (props) => {
   return (
@@ -24,7 +24,7 @@ const PassangerRegisterPage: React.FC<TPassangerRegister> = (props) => {
             label="Register"
             variant="textOnly"
             style={{ justifyContent: 'center' }}
-            onPress={() => props.navigation.push('passangerhome')}
+            onPress={() => props.navigation.push('passengerHome')}
           />
         </Box>
       </TempAuth>
