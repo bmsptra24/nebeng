@@ -17,6 +17,7 @@ interface TAtomCard {
   title: string
   description: string
   buttonText: string
+  buttonOnPress?: () => void
   flip?: boolean
 }
 
@@ -24,6 +25,7 @@ const AtomCard: React.FC<TAtomCard> = ({
   imageSource,
   title,
   description,
+  buttonOnPress,
   buttonText,
   flip = false,
 }) => {
@@ -60,7 +62,7 @@ const AtomCard: React.FC<TAtomCard> = ({
           {title}
         </Text>
         <Text fontSize={'xs'}>{description}</Text>
-        <Button bg={'primary.700'} rounded={'2xl'}>
+        <Button bg={'primary.700'} rounded={'2xl'} onPress={buttonOnPress}>
           {buttonText}
         </Button>
       </VStack>

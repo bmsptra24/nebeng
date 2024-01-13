@@ -18,7 +18,7 @@ const LoginPage: React.FC<TLoginPage> = (props) => {
           w={'full'}
         />
 
-        <Box w={'full'} mb={'2.5'}>
+        <Box w={'full'} mt={'2.5'}>
           <MolForm />
         </Box>
 

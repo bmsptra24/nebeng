@@ -6,27 +6,27 @@ import { TLoginPage } from '../../../types/navigation'
 import { useLoginState } from '../../../store/useLoginState'
 import { LoginApiResponse } from '../../../types/api'
 import { baseUrl } from '../../../config'
+import { useCredentialState } from '../../../store/useCredentialState'
+import { signInWithEmail } from '../../../utils/authentication'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const MolBtnLogin: React.FC<TLoginPage> = ({ navigation }) => {
   const { email, password } = useLoginState()
+  const { setUserData, setToken } = useCredentialState()
   const toast = useToast()
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post(baseUrl + 'login', {
-        email,
-        password,
-      })
+      const response = await signInWithEmail({ email, password })
 
       const data: LoginApiResponse = response.data
       console.log(data.user.indentity.category)
 
       if (data.success) {
-        const homeScreen: 'driverHome' | 'passengerHome' =
-          data.user.indentity.category === 'driver'
-            ? 'driverHome'
-            : 'passengerHome'
-        navigation.push(homeScreen)
+        setUserData(data.user)
+        setToken(data.token)
+        AsyncStorage.setItem('USER_DATA', JSON.stringify(data.user))
+        AsyncStorage.setItem('TOKEN', data.token)
       } else {
         const message = 'User not verified'
         console.error(message)

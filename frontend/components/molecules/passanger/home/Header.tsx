@@ -6,13 +6,13 @@ export const Header = () => {
   return (
     <HStack
       position={'relative'}
-      h={'48'}
+      h={'40'}
       bg={'primary.100'}
       shadow={'9'}
       justifyContent={'space-between'}
       px={'5'}
     >
-      <VStack w={'2/3'} pt={'5'} justifyContent={'space-around'}>
+      <VStack w={'2/3'} justifyContent={'space-evenly'}>
         <HStack mt={'2'} space={'2'} alignItems={'center'}>
           <View w={'9'} h={'9'}>
             <Logo resizeMode="contain" variant="white" />

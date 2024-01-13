@@ -4,18 +4,16 @@ import {
   Center,
   HStack,
   Icon,
-  Image,
+  PresenceTransition,
   Pressable,
   ScrollView,
+  Slide,
   Text,
 } from 'native-base'
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons'
 import { InterfaceIconProps } from 'native-base/lib/typescript/components/primitives/Icon/types'
-import MolForm from '../molecules/login/MolForm'
-import TempAuth from '../templates/TempAuth'
-import MolBtnLogin from '../molecules/auth/MolBtn'
-import AtomButton from '../atoms/AtomButton'
 import HomePage from '../../page/passanger/HomePage'
+import { useNavigationState } from '../../store/useNavigationState'
 
 interface NavigationItem {
   icon: InterfaceIconProps['as']
@@ -29,7 +27,7 @@ const BottomNavigationItem: React.FC<
 > = ({ icon, label, onPress, isSelected }) => (
   <Pressable opacity={isSelected ? 1 : 0.5} py="3.5" flex={1} onPress={onPress}>
     <Center>
-      <Icon mb="1" as={icon} color="white" size="sm" />
+      <Icon mb="1" as={icon} color="white" size="lg" />
       <Text color="white" fontSize="12">
         {label}
       </Text>
@@ -38,52 +36,59 @@ const BottomNavigationItem: React.FC<
 )
 
 const BottomNavigation: React.FC = () => {
-  const [selected, setSelected] = useState(1)
-  console.log({ selected })
+  const { selectedPage, setSelectedPage } = useNavigationState()
 
   const navigationItems: NavigationItem[] = [
     {
       icon: (
         <MaterialCommunityIcons
-          name={selected === 0 ? 'home' : 'home-outline'}
+          name={selectedPage === 0 ? 'home' : 'home-outline'}
         />
       ),
       label: 'Home',
-      onPress: () => setSelected(0),
+      onPress: () => setSelectedPage(0),
       component: <HomePage />,
     },
     {
-      icon: <MaterialIcons name="search" />,
-      label: 'Search',
-      onPress: () => setSelected(1),
-      component: <></>,
-    },
-    {
       icon: (
         <MaterialCommunityIcons
-          name={selected === 2 ? 'cart' : 'cart-outline'}
+          name={selectedPage === 1 ? 'wallet' : 'wallet-outline'}
         />
       ),
-      label: 'Cart',
-      onPress: () => setSelected(2),
-      component: <Text>dddd</Text>,
+      label: 'Saldo',
+      onPress: () => setSelectedPage(1),
+      component: <Center>Comming soon</Center>,
     },
     {
       icon: (
         <MaterialCommunityIcons
-          name={selected === 3 ? 'account' : 'account-outline'}
+          name={selectedPage === 2 ? 'chat' : 'chat-outline'}
+        />
+      ),
+      label: 'Chat',
+      onPress: () => setSelectedPage(2),
+      component: <Center>Comming soon</Center>,
+    },
+    {
+      icon: (
+        <MaterialCommunityIcons
+          name={selectedPage === 3 ? 'account' : 'account-outline'}
         />
       ),
       label: 'Account',
-      onPress: () => setSelected(3),
-      component: <Text>fff</Text>,
+      onPress: () => setSelectedPage(3),
+      component: <Center>Comming soon</Center>,
     },
   ]
 
   const Component = () => (
     <>
       {navigationItems.map((item, index) => {
-        if (index === selected) return item.component
+        return (
+          <React.Fragment key={index}>
+            {index === selectedPage && item.component}
+          </React.Fragment>
+        )
       })}
     </>
   )
@@ -94,8 +99,9 @@ const BottomNavigation: React.FC = () => {
       width="100%"
       alignSelf="center"
       justifyContent={'space-between'}
+      safeAreaTop
     >
-      <ScrollView mb={'16'}>
+      <ScrollView h={'full'}>
         <Component />
       </ScrollView>
       <HStack
@@ -103,16 +109,13 @@ const BottomNavigation: React.FC = () => {
         alignItems="center"
         safeAreaBottom
         shadow={6}
-        position="absolute"
-        bottom={0}
-        left={0}
-        right={0}
+        zIndex={1}
       >
         {navigationItems.map((item, index) => (
           <BottomNavigationItem
             key={index}
             {...item}
-            isSelected={index === selected}
+            isSelected={index === selectedPage}
           />
         ))}
       </HStack>

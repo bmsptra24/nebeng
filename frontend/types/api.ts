@@ -2,7 +2,7 @@ export interface UserData {
   uid: string
   email: string
   indentity: {
-    category: string
+    category: 'passenger' | 'driver'
     name: string
   }
 }

@@ -15,8 +15,10 @@ import { Entypo } from '@expo/vector-icons'
 import AtomButton from '../../components/atoms/AtomButton'
 import AtomCard from '../../components/atoms/AtomCard'
 import { Header } from '../../components/molecules/passanger/home/Header'
+import { useNavigationState } from '../../store/useNavigationState'
 
 const HomePage = () => {
+  const { setActivity } = useNavigationState()
   return (
     <ScrollView>
       <VStack>
@@ -40,6 +42,7 @@ const HomePage = () => {
             title="We will take you to your destination"
             description="Earn points from each order for discounts on your next order."
             buttonText="Order"
+            buttonOnPress={() => setActivity('passengerOrder')}
           />
 
           <AtomCard

@@ -32,9 +32,6 @@ const MolForm = () => {
           Atleast 6 characters are required.
         </FormControl.ErrorMessage>
       </Stack>
-      <Checkbox value="Remember me" colorScheme="blue">
-        <Text>Remember me</Text>
-      </Checkbox>
     </FormControl>
   )
 }
