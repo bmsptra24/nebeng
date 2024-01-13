@@ -1,3 +1,5 @@
+import { Theme } from 'native-base'
+
 const configTheme = {
   colors: {
     primary: {
@@ -10,7 +12,7 @@ const configTheme = {
       700: '#FF401F',
       800: '#FF6544',
       900: '#FF8969',
-      1000: '#FFFACD',
+      50: '#FFFACD',
     },
     // Perubahan warna secondary
     secondary: {
@@ -23,9 +25,47 @@ const configTheme = {
       700: '#FF8969',
       800: '#FFAF8A',
       900: '#FFD5AC',
-      1000: '#FFFACD',
+      50: '#FFFACD',
     },
   },
+  fontConfig: {
+    JosefinSans: {
+      100: {
+        normal: 'JosefinSans_100Thin',
+      },
+      200: {
+        normal: 'JosefinSans_200ExtraLight',
+      },
+      300: {
+        normal: 'JosefinSans_300Light',
+      },
+      400: {
+        normal: 'JosefinSans_400Regular',
+      },
+      500: {
+        normal: 'JosefinSans_500Medium',
+      },
+      600: {
+        normal: 'JosefinSans_600SemiBold',
+      },
+      700: {
+        normal: 'JosefinSans_700Bold',
+      },
+      800: {
+        normal: 'JosefinSans_800ExtraBold',
+      },
+      900: {
+        normal: 'JosefinSans_900Black',
+      },
+    },
+  },
+
+  fonts: {
+    heading: 'JosefinSans',
+    body: 'JosefinSans',
+    mono: 'JosefinSans',
+  },
+
   config: {
     initialColorMode: 'light',
   },

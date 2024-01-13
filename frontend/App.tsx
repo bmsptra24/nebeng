@@ -11,6 +11,19 @@ import DriverRegisterPage from './page/driver/RegisterPage'
 import { RootStackParamList } from './types/navigation'
 import PassangerHome from './page/passanger/HomePage'
 import DriverHome from './page/driver/HomePage'
+import { Text } from 'react-native'
+
+// font
+import {
+  useFonts,
+  JosefinSans_100Thin,
+  JosefinSans_200ExtraLight,
+  JosefinSans_300Light,
+  JosefinSans_400Regular,
+  JosefinSans_500Medium,
+  JosefinSans_600SemiBold,
+  JosefinSans_700Bold,
+} from '@expo-google-fonts/josefin-sans'
 
 // extend the theme
 export const theme = extendTheme(configTheme)
@@ -23,7 +36,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>()
 
 const AppNavigation = () => (
   <NavigationContainer>
-    <Stack.Navigator initialRouteName="login">
+    <Stack.Navigator initialRouteName="passengerHome">
       <Stack.Screen
         name="login"
         component={LoginPage}
@@ -63,6 +76,21 @@ const AppNavigation = () => (
 )
 
 const App = () => {
+  // load font
+  const [fontsLoaded] = useFonts({
+    JosefinSans_100Thin,
+    JosefinSans_200ExtraLight,
+    JosefinSans_300Light,
+    JosefinSans_400Regular,
+    JosefinSans_500Medium,
+    JosefinSans_600SemiBold,
+    JosefinSans_700Bold,
+  })
+
+  if (!fontsLoaded) {
+    return <></>
+  }
+
   return (
     <NativeBaseProvider theme={theme}>
       <AppNavigation />

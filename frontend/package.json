@@ -18,6 +18,7 @@
     "eject": "npx expo rebuild"
   },
   "dependencies": {
+    "@expo-google-fonts/josefin-sans": "^0.2.3",
     "@expo/vector-icons": "^13.0.0",
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/native-stack": "^6.9.17",

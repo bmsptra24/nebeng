@@ -32,7 +32,7 @@ const AtomButton: React.FC<AtomButtonProps> = ({
         justifyContent={'start'}
         style={style}
         px={'5'}
-        py={'3'}
+        pb={'3'}
       >
         <Text fontSize={'xl'} color={'white'}>
           {label}
