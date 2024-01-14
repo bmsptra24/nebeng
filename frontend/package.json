@@ -34,7 +34,9 @@
     "react-native-svg": "13.9.0",
     "react-native-web": "~0.19.6",
     "zustand": "^4.4.7",
-    "@react-native-async-storage/async-storage": "1.18.2"
+    "@react-native-async-storage/async-storage": "1.18.2",
+    "react-native-maps": "1.7.1",
+    "expo-location": "~16.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

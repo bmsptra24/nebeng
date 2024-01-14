@@ -9,7 +9,7 @@ import {
   VStack,
   View,
 } from 'native-base'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Logo from '../../components/atoms/Logo'
 import { Entypo } from '@expo/vector-icons'
 import AtomButton from '../../components/atoms/AtomButton'
@@ -19,6 +19,7 @@ import { useNavigationState } from '../../store/useNavigationState'
 
 const HomePage = () => {
   const { setActivity } = useNavigationState()
+
   return (
     <ScrollView>
       <VStack>

@@ -4,6 +4,7 @@ import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import { getFirestore, doc, getDoc } from 'firebase/firestore'
 import bodyParser from 'body-parser'
 import dotenv from 'dotenv'
+import axios from 'axios'
 
 dotenv.config()
 
@@ -72,6 +73,74 @@ app.post('/login', async (req, res) => {
         message: 'Invalid credentials',
         error: error.message,
       })
+    }
+  }
+})
+
+app.get('/nearby-locations', async (req, res) => {
+  try {
+    const dummmyResponse = {
+      hasilPencarian: [
+        {
+          name: 'Restoran A',
+          address: 'Jalan Contoh 123, Jakarta',
+          types: ['restaurant'],
+          geometry: {
+            location: {
+              lat: -6.2123,
+              lng: 106.8456,
+            },
+          },
+        },
+        {
+          name: 'Kafe B',
+          address: 'Jalan Contoh 456, Jakarta',
+          types: ['cafe'],
+          geometry: {
+            location: {
+              lat: -6.209,
+              lng: 106.8482,
+            },
+          },
+        },
+      ],
+    }
+
+    res.json(dummmyResponse)
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error('Error fetching nearby locations:', error.message)
+      res.status(500).json({ error: 'Internal Server Error' })
+    }
+  }
+})
+
+app.get('/getDetailLocation', async (req, res) => {
+  const { lat, lon } = req.query
+
+  if (!lat || !lon) {
+    return res
+      .status(400)
+      .json({ error: 'Parameter latitude dan longitude diperlukan.' })
+  }
+
+  try {
+    const nominatimUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`
+    const response = await axios.get(nominatimUrl)
+    const data = response.data
+
+    if ('display_name' in data) {
+      const address = data
+      return res.json(address)
+    } else {
+      return res.json({ error: 'Tidak ada hasil.' })
+    }
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error('Error:', error.message)
+      return res
+        .status(500)
+        .json({ error: 'Terjadi kesalahan dalam melakukan permintaan.' })
     }
   }
 })
