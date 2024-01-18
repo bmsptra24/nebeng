@@ -39,11 +39,11 @@ Nebeng is a ride-sharing app designed specifically for students, providing an ef
 
 ### Passenger
 
-![Login & Register](https://github.com/bmsptra24/nebeng/blob/main/doc/passenger.png)
+![Passenger](https://github.com/bmsptra24/nebeng/blob/main/doc/passenger.png)
 
 ### Driver
 
-![Login & Register](https://github.com/bmsptra24/nebeng/blob/main/doc/driver.png)
+![Driver](https://github.com/bmsptra24/nebeng/blob/main/doc/driver.png)
 
 ## Technologies Used 🛠️
 
@@ -107,9 +107,13 @@ Nebeng is a ride-sharing app designed specifically for students, providing an ef
    - Update the `baseUrl` in the `config.ts` file.
 
 4. **Start the Backend Server:**
+
    ```bash
    npm start
    ```
+
+5. **Forward port address backend to public in vscode**
+   ![Forward Port](https://github.com/bmsptra24/nebeng/blob/main/doc/port-forward.png)
 
 ## API Endpoints 📡
 
