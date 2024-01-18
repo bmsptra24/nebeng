@@ -20,4 +20,8 @@ export type TDriverRegister = NativeStackScreenProps<
   'driverRegister'
 >
 
-export type TActivity = 'default' | 'passengerOrder' | 'passangerPrice'
+export type TActivity =
+  | 'default'
+  | 'passengerOrder'
+  | 'passangerPrice'
+  | 'driverOrder'

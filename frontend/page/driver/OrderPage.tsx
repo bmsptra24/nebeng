@@ -1,11 +1,22 @@
-import { FontAwesome, Ionicons } from '@expo/vector-icons'
-import { HStack, Text, VStack, View } from 'native-base'
+import {
+  Entypo,
+  FontAwesome,
+  FontAwesome5,
+  Ionicons,
+  MaterialIcons,
+} from '@expo/vector-icons'
+import { Box, HStack, Text, VStack, View } from 'native-base'
 import React, { useEffect, useState } from 'react'
 import MapView, { Marker } from 'react-native-maps'
 import { usePositionState } from '../../store/usePositionState'
 import AtomButton from '../../components/atoms/AtomButton'
+import { useNavigationState } from '../../store/useNavigationState'
 
 const OrderPage = () => {
+  const { setActivity } = useNavigationState()
+
+  const [step, setStep] = useState<'take-order' | 'finish-order'>('take-order')
+
   const {
     markerDestination,
     markerUserPosition,
@@ -44,67 +55,95 @@ const OrderPage = () => {
     // })
   }, [])
 
-  return (
-    <VStack h={'full'}>
-      <VStack
-        position={'absolute'}
-        zIndex={2}
-        w={'full'}
-        h={'full'}
-        justifyContent={'space-between'}
-      >
-        {/* header */}
-        <VStack
-          w={'full'}
-          px={'8'}
-          py={'8'}
-          h={'40'}
-          roundedBottom={40}
-          // opacity={50}
-          bg={'primary.700'}
-        >
-          <HStack
-            w={'full'}
-            justifyContent={'space-between'}
-            alignItems={'center'}
-          >
-            <Ionicons name="chevron-back" size={40} color="white" />
-            <Text fontSize={'4xl'} fontWeight={'semibold'} color={'white'}>
-              Take Order
+  const FooterTakeOrder = () => (
+    <VStack
+      bg={'white'}
+      p={'5'}
+      rounded={'2xl'}
+      shadow={'6'}
+      m={'5'}
+      space={'1.5'}
+    >
+      <HStack justifyContent={'space-between'}>
+        <Text fontSize={'lg'}>Destination</Text>
+        <Text fontSize={'lg'}>Bukit Lama</Text>
+      </HStack>
+      <HStack justifyContent={'space-between'}>
+        <Text fontSize={'lg'}>Estimate to destination</Text>
+        <Text fontSize={'lg'}>4 Min</Text>
+      </HStack>
+      <HStack justifyContent={'space-between'}>
+        <Text fontSize={'lg'}>Price</Text>
+        <Text fontSize={'lg'}>Rp7.000</Text>
+      </HStack>
+      <AtomButton
+        bg={'primary.200'}
+        style={{ justifyContent: 'center' }}
+        label="Take Order"
+        variant="textOnly"
+        onPress={() => {
+          setStep('finish-order')
+        }}
+      />
+    </VStack>
+  )
+
+  const FooterFinishOrder = () => (
+    <VStack
+      bg={'white'}
+      p={'5'}
+      rounded={'2xl'}
+      shadow={'6'}
+      m={'5'}
+      space={'2'}
+    >
+      <HStack justifyContent={'space-between'}>
+        <HStack space={'2'} alignItems={'center'}>
+          <MaterialIcons name="supervisor-account" size={40} color="black" />
+          <VStack space={0}>
+            <Text fontSize={'xs'}>Ordered by</Text>
+            <Text fontSize={'md'} fontWeight={'bold'}>
+              Olie Neolie
             </Text>
-            <Ionicons name="chevron-back" size={40} color="transparent" />
-          </HStack>
-        </VStack>
+          </VStack>
+        </HStack>
+        <HStack space={'3'}>
+          <Ionicons name="chatbox-ellipses" size={38} color="black" />
+          <FontAwesome5 name="money-bill-wave" size={30} color="black" />
+        </HStack>
+      </HStack>
 
-        <VStack
-          bg={'white'}
-          p={'5'}
-          rounded={'2xl'}
-          shadow={'6'}
-          m={'5'}
-          space={'1.5'}
-        >
-          <HStack justifyContent={'space-between'}>
-            <Text fontSize={'lg'}>Destination</Text>
-            <Text fontSize={'lg'}>Bukit Lama</Text>
-          </HStack>
-          <HStack justifyContent={'space-between'}>
-            <Text fontSize={'lg'}>Estimate to destination</Text>
-            <Text fontSize={'lg'}>4 Min</Text>
-          </HStack>
-          <HStack justifyContent={'space-between'}>
-            <Text fontSize={'lg'}>Price</Text>
-            <Text fontSize={'lg'}>Rp7.000</Text>
-          </HStack>
-          <AtomButton
-            bg={'primary.200'}
-            style={{ justifyContent: 'center' }}
-            label="Take Order"
-            variant="textOnly"
-          />
-        </VStack>
-      </VStack>
+      <HStack>
+        <Entypo name="location-pin" size={35} color="black" />
 
+        <VStack>
+          <Text fontSize={'xs'}>Destination</Text>
+          <Text fontSize={'lg'}>Bukit Lama</Text>
+          <Text fontSize={'xs'}>
+            2P8J+RX Bukit Lama{'\n'}Palembang City, South Sumatera
+          </Text>
+        </VStack>
+      </HStack>
+
+      <HStack justifyContent={'space-between'}>
+        <Text fontSize={'xl'}>Price</Text>
+        <Text fontSize={'xl'}>Rp7.000</Text>
+      </HStack>
+
+      <AtomButton
+        bg={'primary.200'}
+        style={{ justifyContent: 'center' }}
+        label="Finish Order"
+        variant="textOnly"
+        onPress={() => {
+          setActivity('default')
+        }}
+      />
+    </VStack>
+  )
+
+  return (
+    <VStack h={'full'} position={'relative'}>
       {/* map */}
       <View w={'full'} h={'full'} flex={1}>
         <MapView
@@ -141,6 +180,41 @@ const OrderPage = () => {
         /> */}
         </MapView>
       </View>
+
+      {/* page */}
+      <VStack
+        position={'absolute'}
+        zIndex={2}
+        w={'full'}
+        h={'full'}
+        justifyContent={'space-between'}
+      >
+        {/* header */}
+        <VStack
+          w={'full'}
+          px={'8'}
+          py={'8'}
+          h={'40'}
+          roundedBottom={40}
+          // opacity={50}
+          bg={'primary.700'}
+        >
+          <HStack
+            w={'full'}
+            justifyContent={'space-between'}
+            alignItems={'center'}
+          >
+            <Ionicons name="chevron-back" size={40} color="white" />
+            <Text fontSize={'4xl'} fontWeight={'semibold'} color={'white'}>
+              Take Order
+            </Text>
+            <Ionicons name="chevron-back" size={40} color="transparent" />
+          </HStack>
+        </VStack>
+
+        {/* footer */}
+        {step === 'take-order' ? <FooterTakeOrder /> : <FooterFinishOrder />}
+      </VStack>
     </VStack>
   )
 }

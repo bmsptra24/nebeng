@@ -13,17 +13,18 @@ import {
   JosefinSans_600SemiBold,
   JosefinSans_700Bold,
 } from '@expo-google-fonts/josefin-sans'
-import BottomNavigation from './components/navigation/BottomNavigation'
+import BottomNavigationPassenger from './components/navigation/BottomNavigationPassenger'
 import StackNavigation from './components/navigation/StackNavigation'
 import { useCredentialState } from './store/useCredentialState'
 import HomePage from './page/driver/HomePage'
 import { useNavigationState } from './store/useNavigationState'
-import OrderPage from './page/driver/OrderPage'
-// import OrderPage from './page/passanger/OrderPage'
+import OrderPageDriver from './page/driver/OrderPage'
+import OrderPagePassenger from './page/passanger/OrderPage'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import Loading from './components/templates/Loading'
 import SkeletonHomePage from './components/skeletons/passenger/SkeletonHomePage'
 import PricePage from './page/passanger/PricePage'
+import BottomNavigationDriver from './components/navigation/BottomNavigationDriver'
 // extend the theme
 export const theme = extendTheme(configTheme)
 type MyThemeType = typeof theme
@@ -54,12 +55,13 @@ const Authentication = () => {
   if (isLoading) return <SkeletonHomePage />
 
   if (userData?.indentity.category === 'passenger') {
-    if (activity === 'default') return <BottomNavigation />
-    if (activity === 'passengerOrder') return <OrderPage />
+    if (activity === 'default') return <BottomNavigationPassenger />
+    if (activity === 'passengerOrder') return <OrderPagePassenger />
     if (activity === 'passangerPrice') return <PricePage />
   }
   if (userData?.indentity.category === 'driver') {
-    return <HomePage />
+    if (activity === 'default') return <BottomNavigationDriver />
+    if (activity === 'driverOrder') return <OrderPageDriver />
   }
 
   return <StackNavigation />
@@ -86,7 +88,7 @@ const App = () => {
       <Authentication />
       {/* <PricePage /> */}
       {/* <HomePage /> */}
-      <OrderPage />
+      {/* <OrderPage /> */}
     </NativeBaseProvider>
   )
 }

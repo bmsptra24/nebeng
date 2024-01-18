@@ -3,6 +3,7 @@ import { Box, Button, Center, Switch, Text, VStack, View } from 'native-base'
 import React, { useEffect, useState } from 'react'
 import MapView, { Marker, Polyline } from 'react-native-maps'
 import { usePositionState } from '../../store/usePositionState'
+import { useNavigationState } from '../../store/useNavigationState'
 
 const HomePage = () => {
   const {
@@ -11,6 +12,8 @@ const HomePage = () => {
     polylineCoordinates,
     setMarkerUserPosition,
   } = usePositionState()
+
+  const { setActivity } = useNavigationState()
 
   const [mapRegion, setMapRegion] = useState({
     latitude: markerDestination.latitude,
@@ -44,7 +47,14 @@ const HomePage = () => {
   }, [])
 
   return (
-    <VStack h={'full'}>
+    <VStack
+      zIndex={1}
+      position={'absolute'}
+      top={0}
+      bottom={0}
+      left={0}
+      right={0}
+    >
       <VStack position={'absolute'} zIndex={2} w={'full'} h={'40'}>
         <VStack
           w={'full'}
@@ -79,12 +89,18 @@ const HomePage = () => {
           </Marker> */}
 
           <Marker
-            // coordinate={{latitude: -2.9827408624367266, longitude: 104.73565857635109}}
-            coordinate={markerUserPosition}
+            coordinate={{
+              latitude: -2.9827408624367266,
+              longitude: 104.73565857635109,
+            }}
+            // coordinate={markerUserPosition}
             title="Your Location"
             description="This is your location"
+            onPress={() => {
+              setActivity('driverOrder')
+            }}
           >
-            <FontAwesome name="circle" size={30} color="blue" />
+            <FontAwesome5 name="map-marker" size={36} color="red" />
           </Marker>
 
           {/* Add Polyline component */}

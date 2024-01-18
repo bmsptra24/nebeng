@@ -1,23 +1,20 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   Box,
   Center,
   HStack,
   Icon,
-  PresenceTransition,
   Pressable,
   ScrollView,
   Slide,
   Text,
 } from 'native-base'
-import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { InterfaceIconProps } from 'native-base/lib/typescript/components/primitives/Icon/types'
 import HomePage from '../../page/passanger/HomePage'
 import { useNavigationState } from '../../store/useNavigationState'
 import AtomButton from '../atoms/AtomButton'
 import { logOut } from '../../utils/authentication'
-import { useCredentialState } from '../../store/useCredentialState'
-import { reloadAsync } from 'expo-updates'
 
 interface NavigationItem {
   icon: InterfaceIconProps['as']
@@ -26,7 +23,7 @@ interface NavigationItem {
   component: React.ReactElement
 }
 
-const BottomNavigationItem: React.FC<
+const BottomNavigationPassengerItem: React.FC<
   NavigationItem & { isSelected: boolean }
 > = ({ icon, label, onPress, isSelected }) => (
   <Pressable opacity={isSelected ? 1 : 0.5} py="3.5" flex={1} onPress={onPress}>
@@ -39,7 +36,7 @@ const BottomNavigationItem: React.FC<
   </Pressable>
 )
 
-const BottomNavigation: React.FC = () => {
+const BottomNavigationPassenger: React.FC = () => {
   const { selectedPage, setSelectedPage } = useNavigationState()
 
   const navigationItems: NavigationItem[] = [
@@ -125,7 +122,7 @@ const BottomNavigation: React.FC = () => {
         zIndex={1}
       >
         {navigationItems.map((item, index) => (
-          <BottomNavigationItem
+          <BottomNavigationPassengerItem
             key={index}
             {...item}
             isSelected={index === selectedPage}
@@ -136,4 +133,4 @@ const BottomNavigation: React.FC = () => {
   )
 }
 
-export default BottomNavigation
+export default BottomNavigationPassenger
