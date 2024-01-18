@@ -118,6 +118,7 @@ Nebeng is a ride-sharing app designed specifically for students, providing an ef
 ## API Endpoints 📡
 
 - **Login:**
+
   - Endpoint: `/login`
   - Method: `POST`
   - Request Body:
@@ -126,6 +127,27 @@ Nebeng is a ride-sharing app designed specifically for students, providing an ef
       "email": "driver@gmail.com",
       "password": "driver123"
     }
+    ```
+
+- **Nearby-Locations:**
+
+  - Endpoint: `/nearby-locations`
+  - Method: `GET`
+  - Request params:
+    ```
+    lat: 37.7749
+    lng: -122.4194
+    radius: 5000
+    type: restaurant
+    ```
+
+- **Detail-Location:**
+  - Endpoint: `/getDetailLocation`
+  - Method: `GET`
+  - Request params:
+    ```
+    lat: 37.7749
+    lon: -122.4194
     ```
 
 ---
