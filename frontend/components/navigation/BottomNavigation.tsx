@@ -14,6 +14,10 @@ import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons'
 import { InterfaceIconProps } from 'native-base/lib/typescript/components/primitives/Icon/types'
 import HomePage from '../../page/passanger/HomePage'
 import { useNavigationState } from '../../store/useNavigationState'
+import AtomButton from '../atoms/AtomButton'
+import { logOut } from '../../utils/authentication'
+import { useCredentialState } from '../../store/useCredentialState'
+import { reloadAsync } from 'expo-updates'
 
 interface NavigationItem {
   icon: InterfaceIconProps['as']
@@ -77,7 +81,16 @@ const BottomNavigation: React.FC = () => {
       ),
       label: 'Account',
       onPress: () => setSelectedPage(3),
-      component: <Center>Comming soon</Center>,
+      component: (
+        <Center>
+          <AtomButton
+            bg={'primary.700'}
+            label="Log Out"
+            variant="textOnly"
+            onPress={() => logOut()}
+          />
+        </Center>
+      ),
     },
   ]
 

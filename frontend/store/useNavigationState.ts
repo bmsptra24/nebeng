@@ -1,6 +1,5 @@
 import { create } from 'zustand'
-
-type TActivity = 'default' | 'passengerOrder'
+import { TActivity } from '../types/navigation'
 
 interface TState {
   selectedPage: number

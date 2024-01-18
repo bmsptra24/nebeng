@@ -9,6 +9,7 @@ interface AtomButtonProps {
   onPress?: () => void
   style?: StyleProp<ViewStyle>
   bg: ColorType
+  disable?: boolean
 }
 
 const AtomButton: React.FC<AtomButtonProps> = ({
@@ -17,6 +18,7 @@ const AtomButton: React.FC<AtomButtonProps> = ({
   style,
   variant,
   bg,
+  disable = false,
 }) => {
   if (variant === 'textOnly')
     return (
@@ -24,6 +26,7 @@ const AtomButton: React.FC<AtomButtonProps> = ({
         _pressed={{
           bg: 'primary.800',
         }}
+        disabled={disable}
         bg={bg}
         rounded={'full'}
         w={'full'}

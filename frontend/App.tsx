@@ -18,10 +18,12 @@ import StackNavigation from './components/navigation/StackNavigation'
 import { useCredentialState } from './store/useCredentialState'
 import HomePage from './page/driver/HomePage'
 import { useNavigationState } from './store/useNavigationState'
-import OrderPage from './page/passanger/OrderPage'
+import OrderPage from './page/driver/OrderPage'
+// import OrderPage from './page/passanger/OrderPage'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import Loading from './components/templates/Loading'
 import SkeletonHomePage from './components/skeletons/passenger/SkeletonHomePage'
+import PricePage from './page/passanger/PricePage'
 // extend the theme
 export const theme = extendTheme(configTheme)
 type MyThemeType = typeof theme
@@ -54,6 +56,7 @@ const Authentication = () => {
   if (userData?.indentity.category === 'passenger') {
     if (activity === 'default') return <BottomNavigation />
     if (activity === 'passengerOrder') return <OrderPage />
+    if (activity === 'passangerPrice') return <PricePage />
   }
   if (userData?.indentity.category === 'driver') {
     return <HomePage />
@@ -81,6 +84,9 @@ const App = () => {
   return (
     <NativeBaseProvider theme={theme}>
       <Authentication />
+      {/* <PricePage /> */}
+      {/* <HomePage /> */}
+      <OrderPage />
     </NativeBaseProvider>
   )
 }

@@ -8,6 +8,7 @@ import {
   Text,
   VStack,
   View,
+  useToast,
 } from 'native-base'
 import React, { useEffect } from 'react'
 import Logo from '../../components/atoms/Logo'
@@ -16,10 +17,57 @@ import AtomButton from '../../components/atoms/AtomButton'
 import AtomCard from '../../components/atoms/AtomCard'
 import { Header } from '../../components/molecules/passanger/home/Header'
 import { useNavigationState } from '../../store/useNavigationState'
+import { usePositionState } from '../../store/usePositionState'
+import { getDetailLocation, getUserLocation } from '../../utils/location'
+import { LatLng } from 'react-native-maps'
 
 const HomePage = () => {
   const { setActivity } = useNavigationState()
+  const {
+    markerDestination,
+    markerUserPosition,
+    setMarkerDestination,
+    setMarkerUserPosition,
+    setUserPositionName,
+  } = usePositionState()
 
+  const toast = useToast()
+
+  // init user location
+  useEffect(() => {
+    getUserLocation().then(async (response) => {
+      setMarkerUserPosition(response as LatLng)
+    })
+  }, [])
+
+  useEffect(() => {
+    const getData = async () => {
+      toast.show({
+        zIndex: 2,
+        title: 'Please wait...',
+        description: 'Trying to find your location',
+        bg: 'primary.300',
+        placement: 'top',
+      })
+
+      await getDetailLocation(
+        markerUserPosition?.latitude as number,
+        markerUserPosition?.longitude as number,
+      ).then((userLocation) => {
+        const placeName = userLocation?.split(', ').slice(0, 2).join(', ')
+        setUserPositionName(placeName)
+      })
+
+      toast.show({
+        zIndex: 2,
+        title: 'Successfully found your location',
+        bg: 'primary.300',
+        placement: 'top',
+      })
+    }
+    if (markerUserPosition.latitude !== 0 && markerUserPosition.longitude !== 0)
+      getData()
+  }, [markerUserPosition])
   return (
     <ScrollView>
       <VStack>

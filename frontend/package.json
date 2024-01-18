@@ -36,7 +36,9 @@
     "zustand": "^4.4.7",
     "@react-native-async-storage/async-storage": "1.18.2",
     "react-native-maps": "1.7.1",
-    "expo-location": "~16.1.0"
+    "expo-location": "~16.1.0",
+    "@react-native-community/datetimepicker": "7.2.0",
+    "expo-updates": "~0.18.19"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
